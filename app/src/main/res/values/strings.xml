@@ -1,3 +1,11 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">CS213_Project5</string>
+    <string name="museum_of_modern_art">Museum of Modern Art</string>
+    <string name="museum_of_natural_history">Museum of Natural History</string>
+    <string name="the_met">The Met</string>
+    <string name="brooklyn_museum">Brooklyn Museum</string>
+    <string name="tickets">Tickets</string>
+    <string name="tickets" tools:ignore="DuplicateDefinition">Tickets</string>
+    <string name="tickets" tools:ignore="DuplicateDefinition">Tickets</string>
+    <string name="tickets" tools:ignore="DuplicateDefinition">Tickets</string>
 </resources>
