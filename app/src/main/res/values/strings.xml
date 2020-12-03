@@ -4,8 +4,4 @@
     <string name="museum_of_natural_history">Museum of Natural History</string>
     <string name="the_met">The Met</string>
     <string name="brooklyn_museum">Brooklyn Museum</string>
-    <string name="tickets">Tickets</string>
-    <string name="tickets" tools:ignore="DuplicateDefinition">Tickets</string>
-    <string name="tickets" tools:ignore="DuplicateDefinition">Tickets</string>
-    <string name="tickets" tools:ignore="DuplicateDefinition">Tickets</string>
 </resources>
