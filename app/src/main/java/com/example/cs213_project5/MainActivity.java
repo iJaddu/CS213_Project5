@@ -2,7 +2,6 @@ package com.example.cs213_project5;
 
 import android.content.Intent;
 import android.view.View;
-import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -17,28 +16,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void MoMAOnClick(View view){
         Intent intent = new Intent(this, TicketActivity.class);
-        String museum = "MOMA";
+        String museum = "The Museum of Modern Art";
         intent.putExtra("MUSEUM_ID", museum);
         startActivity(intent);
     }
 
     public void NaturalHistoryOnClick(View view){
         Intent intent = new Intent(this, TicketActivity.class);
-        String museum = "NH";
+        String museum = "The Museum of Natural History";
+        intent.putExtra("MUSEUM_ID", museum);
         startActivity(intent);
 
     }
 
     public void TheMetOnClick(View view){
         Intent intent = new Intent(this, TicketActivity.class);
-        String museum = "MET";
+        String museum = "The Metropolitan Museum of Art";
+        intent.putExtra("MUSEUM_ID", museum);
         startActivity(intent);
 
     }
 
     public void BrooklynOnClick(View view){
         Intent intent = new Intent(this, TicketActivity.class);
-        String museum = "BROOK";
+        String museum = "The Brooklyn Museum";
+        intent.putExtra("MUSEUM_ID", museum);
         startActivity(intent);
 
     }
