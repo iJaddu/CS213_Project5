@@ -156,12 +156,12 @@
 
     <Spinner
         android:id="@+id/adultTickets"
-        android:layout_width="80dp"
+        android:layout_width="140dp"
         android:layout_height="25dp"
         android:layout_marginTop="50dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:entries="@array/tickets"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:entries="@array/adultTicketArray"
         android:spinnerMode="dropdown"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
@@ -170,24 +170,25 @@
 
     <Spinner
         android:id="@+id/seniorTickets"
-        android:layout_width="80dp"
+        android:layout_width="140dp"
         android:layout_height="25dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:entries="@array/tickets"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:entries="@array/seniorTicketArray"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/adultTickets" />
 
     <Spinner
         android:id="@+id/studentTickets"
-        android:layout_width="80dp"
+        android:layout_width="140dp"
         android:layout_height="25dp"
         android:layout_marginTop="40dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginRight="100dp"
-        android:entries="@array/tickets"
+        android:layout_marginEnd="50dp"
+        android:layout_marginRight="50dp"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seniorTickets" />
+        app:layout_constraintTop_toBottomOf="@+id/seniorTickets"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

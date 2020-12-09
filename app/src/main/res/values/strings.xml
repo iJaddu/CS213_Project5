@@ -13,12 +13,29 @@
     <string name="ticketTotal">Tickets Total:</string>
     <string name="salesTax">Sales Tax:</string>
     <string name="total">Total:</string>
-    <string-array name="tickets">
-        <item>0</item>
-        <item>1</item>
-        <item>2</item>
-        <item>3</item>
-        <item>4</item>
-        <item>5</item>
+    <string name="maxTicketsMsg">Maximum of 5 tickets each!</string>
+    <string-array name="adultTicketArray">
+        <item>0 Adults</item>
+        <item>1 Adults</item>
+        <item>2 Adults</item>
+        <item>3 Adults</item>
+        <item>4 Adults</item>
+        <item>5 Adults</item>
+    </string-array>
+    <string-array name="seniorTicketArray">
+        <item>0 Seniors</item>
+        <item>1 Seniors</item>
+        <item>2 Seniors</item>
+        <item>3 Seniors</item>
+        <item>4 Seniors</item>
+        <item>5 Seniors</item>
+    </string-array>
+    <string-array name="studentTicketArray">
+        <item>0 Students</item>
+        <item>1 Students</item>
+        <item>2 Students</item>
+        <item>3 Students</item>
+        <item>4 Students</item>
+        <item>5 Students</item>
     </string-array>
 </resources>

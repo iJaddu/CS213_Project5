@@ -1,7 +1,11 @@
 package com.example.cs213_project5;
 
+import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -10,6 +14,9 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
+
+import java.text.DecimalFormat;
 
 public class TicketActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener{
 
@@ -19,6 +26,8 @@ public class TicketActivity extends AppCompatActivity implements AdapterView.OnI
     int seniorCost = 0;
     int studentCost = 0;
     int numberTickets=0;
+    double salesTax = 0.0, adultTicketCost = 0.0, seniorTicketCost = 0.0, studentTicketCost = 0.0,nySalesTax  = .08875;
+    double adultTax=0.0, seniorTax = 0.0, studentTax = 0.0;
 
 
 
@@ -43,6 +52,7 @@ public class TicketActivity extends AppCompatActivity implements AdapterView.OnI
         Spinner adultTickets = (Spinner)findViewById(R.id.adultTickets);
         Spinner seniorTickets = (Spinner)findViewById(R.id.seniorTickets);
         Spinner studentTickets = (Spinner)findViewById(R.id.studentTickets);
+
 
 
         if (message.equals("The Museum of Modern Art")) {
@@ -95,25 +105,37 @@ public class TicketActivity extends AppCompatActivity implements AdapterView.OnI
         }
 
 
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.tickets, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        adultTickets.setAdapter(adapter);
+
+
+        ArrayAdapter<CharSequence> adultAdapter = ArrayAdapter.createFromResource(this, R.array.adultTicketArray, android.R.layout.simple_spinner_item);
+        adultAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        adultTickets.setAdapter(adultAdapter);
         adultTickets.setOnItemSelectedListener(this);
 
 
-        ArrayAdapter<CharSequence> adapter2 = ArrayAdapter.createFromResource(this, R.array.tickets, android.R.layout.simple_spinner_item);
-        adapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> seniorAdapter = ArrayAdapter.createFromResource(this, R.array.seniorTicketArray, android.R.layout.simple_spinner_item);
+        seniorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-
-
-        seniorTickets.setAdapter(adapter2);
+        seniorTickets.setAdapter(seniorAdapter);
         seniorTickets.setOnItemSelectedListener(this);
 
 
+        ArrayAdapter<CharSequence> studentAdapter = ArrayAdapter.createFromResource(this, R.array.studentTicketArray, android.R.layout.simple_spinner_item);
+        seniorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        studentTickets.setAdapter(adapter);
+
+        studentTickets.setAdapter(studentAdapter);
         studentTickets.setOnItemSelectedListener(this);
 
+
+
+        Context context = getApplicationContext();
+        CharSequence msg = "Maximum of 5 tickets each!";
+        int duration = Toast.LENGTH_LONG;
+
+        Toast toast = Toast.makeText(context, msg, duration);
+        toast.setGravity(0,0,0);
+        toast.show();
 
 
 
@@ -127,16 +149,91 @@ public class TicketActivity extends AppCompatActivity implements AdapterView.OnI
         TextView ticketCostView = (TextView)findViewById(R.id.ticketCostView);
         TextView salesTaxView = (TextView)findViewById(R.id.salesTaxView);
         TextView totalPriceView = (TextView)findViewById(R.id.totalView);
-        double salesTax = 0.0, ticketCost = 0.0;
 
-        numberTickets = position;
-        total = numberTickets * adultCost;
-
-        System.out.println("checking->>:" + id);
-        totalPriceView.setText(String.valueOf(total));
+        DecimalFormat df = new DecimalFormat("0.00");
 
 
+        String ticketType = parent.getSelectedItem().toString().split(" ")[1];
 
+        switch (ticketType) {
+
+
+            case "Adults":
+
+                if((position == 0) && (total > 0.0)) {
+                    total = total - adultTicketCost - adultTax;
+                    salesTax = salesTax - adultTax;
+                    adultTicketCost = 0.0;
+                    adultTax = 0.0;
+                    totalPriceView.setText("$ ".concat(String.valueOf(df.format(total))));
+                    ticketCostView.setText("$ ".concat(String.valueOf(df.format(adultTicketCost))));
+                    salesTaxView.setText("$ ".concat(String.valueOf(df.format(salesTax))));
+                }
+                else{
+
+                    numberTickets = position;
+                    adultTicketCost = adultTicketCost + ( numberTickets * adultCost);
+                    ticketCostView.setText("$ ".concat(String.valueOf(df.format(adultTicketCost))));
+                    adultTax = (adultTicketCost * nySalesTax);
+                    salesTax = salesTax + adultTax;
+                    salesTaxView.setText("$ ".concat(String.valueOf(df.format(salesTax))));
+                    total = total + adultTicketCost + adultTax;
+
+                }
+
+
+                break;
+
+            case "Seniors":
+
+                if(position == 0 && total > 0.0) {
+                    total = total - seniorTicketCost - seniorTax;
+                    salesTax = salesTax - seniorTax;
+                    seniorTicketCost = 0.0;
+                    seniorTax = 0.0;
+                    totalPriceView.setText("$ ".concat(String.valueOf(df.format(total))));
+                    ticketCostView.setText("$ ".concat(String.valueOf(df.format(seniorTicketCost))));
+                    salesTaxView.setText("$ ".concat(String.valueOf(df.format(salesTax))));
+
+                }
+                else {
+
+                    numberTickets = position;
+                    seniorTicketCost = seniorTicketCost + ( numberTickets * seniorCost);
+                    ticketCostView.setText("$ ".concat(String.valueOf(seniorTicketCost)));
+                    seniorTax = seniorTicketCost * nySalesTax;
+                    salesTax = salesTax + seniorTax;
+                    salesTaxView.setText("$ ".concat(String.valueOf(df.format(salesTax))));
+                    total = total + seniorTicketCost + seniorTax;
+                }
+
+
+                break;
+
+            case "Students":
+
+                if(position == 0 && total > 0.0) {
+                    total = total - studentTicketCost - studentTax;
+                    salesTax = salesTax - studentTax;
+                    studentTicketCost = 0.0;
+                    studentTax =0.0;
+                    totalPriceView.setText("$ ".concat(String.valueOf(df.format(total))));
+                    ticketCostView.setText("$ ".concat(String.valueOf(df.format(studentTicketCost))));
+                    salesTaxView.setText(String.valueOf("$ ".concat(String.valueOf(df.format(salesTax)))));
+                }
+                numberTickets = position;
+                studentTicketCost = studentTicketCost + ( numberTickets * studentCost);
+                ticketCostView.setText("$ ".concat(String.valueOf(df.format(studentTicketCost))));
+                studentTax = studentTicketCost * nySalesTax;
+                salesTax = salesTax + studentTax;
+                salesTaxView.setText("$ ".concat(String.valueOf(df.format(salesTax))));
+                total = total + studentTicketCost + studentTax;
+
+                break;
+
+        }
+
+        totalPriceView.setText("$ ".concat(String.valueOf(df.format(total))));
 
     }
 
@@ -144,6 +241,14 @@ public class TicketActivity extends AppCompatActivity implements AdapterView.OnI
     public void onNothingSelected(AdapterView<?> parent) {
 
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        startActivityForResult(intent, 0);
+        return true;
+    }
+
 
 
     /**

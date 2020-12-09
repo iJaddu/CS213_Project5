@@ -15,43 +15,67 @@
             android:layout_marginEnd="16dp" android:layout_marginRight="16dp"
             app:layout_constraintEnd_toEndOf="parent" android:textSize="30sp" android:textColor="@android:color/black"
             android:textStyle="bold"/>
+
     <Button
-            android:text="@string/museum_of_modern_art"
-            android:layout_width="364dp"
-            android:layout_height="60dp" android:id="@+id/MoMATicketsButton"
-            android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/NYCMuseumsTitle"
-            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="24dp"
-            android:layout_marginStart="24dp" android:layout_marginEnd="24dp" android:layout_marginRight="24dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginBottom="28dp"
-            app:layout_constraintBottom_toTopOf="@+id/NaturalHistoryTicketsButton" android:onClick="MoMAOnClick"/>
+        android:id="@+id/MoMATicketsButton"
+        android:layout_width="364dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:onClick="MoMAOnClick"
+        android:text="@string/museum_of_modern_art"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NYCMuseumsTitle" />
+
     <Button
-            android:text="@string/museum_of_natural_history"
-            android:layout_width="364dp"
-            android:layout_height="60dp" android:id="@+id/NaturalHistoryTicketsButton"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintHorizontal_bias="0.659"
-            android:layout_marginLeft="24dp" android:layout_marginStart="24dp" android:layout_marginRight="24dp"
-            android:layout_marginEnd="24dp" android:layout_marginBottom="28dp"
-            app:layout_constraintBottom_toTopOf="@+id/MetTicketsButton" android:onClick="NaturalHistoryOnClick"/>
+        android:id="@+id/NaturalHistoryTicketsButton"
+        android:layout_width="364dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:onClick="NaturalHistoryOnClick"
+        android:text="@string/museum_of_natural_history"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.659"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MoMATicketsButton" />
+
     <Button
-            android:text="@string/the_met"
-            android:layout_width="364dp"
-            android:layout_height="60dp" android:id="@+id/MetTicketsButton"
-            android:layout_marginBottom="28dp" app:layout_constraintBottom_toTopOf="@+id/BrooklynTicketsButton"
-            android:onClick="TheMetOnClick" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginLeft="24dp" android:layout_marginStart="24dp"
-            app:layout_constraintEnd_toEndOf="parent" android:layout_marginRight="24dp"
-            android:layout_marginEnd="24dp"/>
+        android:id="@+id/MetTicketsButton"
+        android:layout_width="364dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:onClick="TheMetOnClick"
+        android:text="@string/the_met"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/NaturalHistoryTicketsButton" />
+
     <Button
-            android:text="@string/brooklyn_museum"
-            android:layout_width="364dp"
-            android:layout_height="60dp" android:id="@+id/BrooklynTicketsButton"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginBottom="328dp"
-            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.498" android:onClick="BrooklynOnClick"
-            android:layout_marginLeft="24dp" android:layout_marginStart="24dp" android:layout_marginRight="24dp"
-            android:layout_marginEnd="24dp"/>
+        android:id="@+id/BrooklynTicketsButton"
+        android:layout_width="364dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:onClick="BrooklynOnClick"
+        android:text="@string/brooklyn_museum"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/MetTicketsButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
