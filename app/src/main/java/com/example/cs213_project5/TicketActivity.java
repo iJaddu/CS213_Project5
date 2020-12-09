@@ -55,11 +55,13 @@ public class TicketActivity extends AppCompatActivity implements AdapterView.OnI
 
 
 
+
+
         if (message.equals("The Museum of Modern Art")) {
             museumName.setImageResource(R.drawable.moma);
-            adultAdmission.setText("Adult $25");
-            seniorAdmission.setText("Senior $18");
-            studentAdmission.setText("Student $14");
+            adultAdmission.setText(R.string.momaAdult);
+            seniorAdmission.setText(R.string.momaSenior);
+            studentAdmission.setText(R.string.momaStudent);
             adultCost = 25;
             seniorCost = 18;
             studentCost = 14;
@@ -67,11 +69,12 @@ public class TicketActivity extends AppCompatActivity implements AdapterView.OnI
 
 
 
+
         } else if (message.equals("The Museum of Natural History")) {
             museumName.setImageResource(R.drawable.natural_history);
-            adultAdmission.setText("Adult $23");
-            seniorAdmission.setText("Senior $18");
-            studentAdmission.setText("Student $18");
+            adultAdmission.setText(R.string.nhmAdult);
+            seniorAdmission.setText(R.string.nhmSenior);
+            studentAdmission.setText(R.string.nhmStudent);
             adultCost = 23;
             seniorCost = 18;
             studentCost = 18;
@@ -80,9 +83,9 @@ public class TicketActivity extends AppCompatActivity implements AdapterView.OnI
 
         } else if (message.equals("The Metropolitan Museum of Art")) {
             museumName.setImageResource(R.drawable.met);
-            adultAdmission.setText("Adult $25");
-            seniorAdmission.setText("Senior $17");
-            studentAdmission.setText("Student $12");
+            adultAdmission.setText(R.string.metAdult);
+            seniorAdmission.setText(R.string.metSenior);
+            studentAdmission.setText(R.string.metStudent);
             adultCost = 25;
             seniorCost = 17;
             studentCost = 12;
@@ -90,19 +93,23 @@ public class TicketActivity extends AppCompatActivity implements AdapterView.OnI
 
 
 
+
         } else if (message.equals("The Brooklyn Museum")) {
             museumName.setImageResource(R.drawable.brooklyn);
-            adultAdmission.setText("Adult $16");
-            seniorAdmission.setText("Senior $10");
-            studentAdmission.setText("Student $10");
+            adultAdmission.setText(R.string.brookAdult);
+            seniorAdmission.setText(R.string.brookSenior);
+            studentAdmission.setText(R.string.brookStudent);
             adultCost = 16;
             seniorCost = 10;
             studentCost = 10;
 
 
 
-
         }
+
+
+
+
 
 
 
@@ -128,16 +135,11 @@ public class TicketActivity extends AppCompatActivity implements AdapterView.OnI
         studentTickets.setOnItemSelectedListener(this);
 
 
-
         Context context = getApplicationContext();
         CharSequence msg = "Maximum of 5 tickets each!";
         int duration = Toast.LENGTH_LONG;
 
-        Toast toast = Toast.makeText(context, msg, duration);
-        toast.setGravity(0,0,0);
-        toast.show();
-
-
+        Toast.makeText(context, msg, duration).show();
 
     }
 

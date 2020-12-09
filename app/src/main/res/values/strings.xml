@@ -14,6 +14,22 @@
     <string name="salesTax">Sales Tax:</string>
     <string name="total">Total:</string>
     <string name="maxTicketsMsg">Maximum of 5 tickets each!</string>
+    <string name="momaAdult">Adult $25</string>
+    <string name="momaSenior">Senior $18</string>
+    <string name="momaStudent">Student $14</string>
+    <string name="nhmAdult">Adult $23</string>
+    <string name="nhmSenior">Senior $18</string>
+    <string name="nhmStudent">Student $18</string>
+    <string name="metAdult">Adult $25</string>
+    <string name="metSenior">Senior $17</string>
+    <string name="metStudent">Student $12</string>
+    <string name="brookAdult">Adult $16</string>
+    <string name="brookSenior">Senior $10</string>
+    <string name="brookStudent">Student $10</string>
+
+
+
+
     <string-array name="adultTicketArray">
         <item>0 Adults</item>
         <item>1 Adults</item>
